@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-blue-50: #7bcdf3;
+  --color-blue-60: #43c3f3;
+  --color-blue-70: #00adee;
+
+  --color-green-50: #c0df89;
+  --color-green-60: #acd865;
+  --color-green-70: #8fc63e;
+  --color-grey-40: #dadada;
+  --color-grey-70: #a0a0a0;
+  --color-grey-80: #6f6f6f;
+  --color-red-50: #fda7aa;
+  --color-red-60: #fc8185;
+  --color-red-70: #fb565b;
+  --color-yellow-50: #fbe38e;
+  --color-yellow-60: #fad961;
+  --color-yellow-70: #f9cf34;
+  --font-heading: "BBH Sans Bogle", sans-serif;
+}
