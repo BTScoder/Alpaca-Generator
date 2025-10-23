@@ -6,14 +6,14 @@ function App() {
   const [categories, setCategories] = useState([]);
   const [chosenCategory, setChosenCategory] = useState("hair");
   const [alpacaDrawing, setAlpacaDrawing] = useState({
-    hair: "src/assets/alpaca/hair/default.png",
-    ears: "src/assets/alpaca/ears/default.png",
-    eyes: "src/assets/alpaca/eyes/default.png",
-    mouth: "src/assets/alpaca/mouth/default.png",
-    neck: "src/assets/alpaca/neck/default.png",
+    hair: "/alpaca/hair/default.png",
+    ears: "/alpaca/ears/default.png",
+    eyes: "/alpaca/eyes/default.png",
+    mouth: "/alpaca/mouth/default.png",
+    neck: "/alpaca/neck/default.png",
     accessories: null,
-    background: "src/assets/alpaca/backgrounds/darkblue70.png",
-    nose: "src/assets/alpaca/nose.png",
+    background: "/alpaca/backgrounds/darkblue70.png",
+    nose: "/alpaca/nose.png",
   });
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function App() {
       neck: alpaca.neck[randomNeck].path,
       accessories: alpaca.accessories[randomAccessories].path,
       background: alpaca.backgrounds[randomBackground].path,
-      nose: "src/assets/alpaca/nose.png",
+      nose: "/alpaca/nose.png",
     });
   };
   // console.log(alpaca, categories);
