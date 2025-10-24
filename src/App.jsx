@@ -11,11 +11,16 @@ function App() {
     eyes: "/alpaca/eyes/default.png",
     mouth: "/alpaca/mouth/default.png",
     neck: "/alpaca/neck/default.png",
+    leg: "/alpaca/leg/default.png",
     accessories: null,
     background: "/alpaca/backgrounds/darkblue70.png",
     nose: "/alpaca/nose.png",
   });
 
+  const changeAlpacaPart = (part, item) => {
+    setAlpacaDrawing((prev) => ({ ...prev, [part]: item.path }));
+    console.log(part, item.path, alpacaDrawing);
+  };
   useEffect(() => {
     fetch("data/data.json")
       .then((response) => response.json())
@@ -27,11 +32,6 @@ function App() {
       });
   }, []);
 
-  const changeAlpacaPart = (part, item) => {
-    setAlpacaDrawing((prev) => ({ ...prev, [part]: item.path }));
-    // console.log(part, item.path, alpacaDrawing);
-  };
-
   const randomAlpaca = () => {
     if (!alpaca) return;
 
@@ -40,11 +40,12 @@ function App() {
     const randomEyes = Math.floor(Math.random() * alpaca.eyes.length);
     const randomMouth = Math.floor(Math.random() * alpaca.mouth.length);
     const randomNeck = Math.floor(Math.random() * alpaca.neck.length);
+    const randomLeg = Math.floor(Math.random() * alpaca.leg.length);
     const randomAccessories = Math.floor(
-      Math.random() * alpaca?.accessories.length
+      Math.random() * alpaca.accessories.length
     );
     const randomBackground = Math.floor(
-      Math.random() * alpaca?.backgrounds.length
+      Math.random() * alpaca.backgrounds.length
     );
 
     setAlpacaDrawing({
@@ -53,6 +54,7 @@ function App() {
       eyes: alpaca.eyes[randomEyes].path,
       mouth: alpaca.mouth[randomMouth].path,
       neck: alpaca.neck[randomNeck].path,
+      leg: alpaca.leg[randomLeg].path,
       accessories: alpaca.accessories[randomAccessories].path,
       background: alpaca.backgrounds[randomBackground].path,
       nose: "/alpaca/nose.png",
@@ -69,69 +71,90 @@ function App() {
           <div>
             {/* Alpaca Image Div */}
             <div
-              className="bg-[url('${alpacaDrawing.background}')] h-60 mx-auto w-full rounded-xl"
+              className="h-60 sm:h-96 w-full max-w-md mx-auto rounded-xl relative overflow-hidden"
               style={{ backgroundImage: `url('${alpacaDrawing.background}')` }}
             >
-              <div className="max-w-lg mx-auto relative">
-                {/* Accessories */}
-                {alpacaDrawing.accessories && (
-                  <div className="absolute z-70 top-2 left-30 size-60 overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-center">
+                {/* This is the box for the actual alpaca */}
+                <div className="relative w-60 h-60 sm:h-96 sm:w-96">
+                  {/* Accessories */}
+                  {alpacaDrawing.accessories && (
+                    <div className="absolute z-70 inset-0">
+                      <img
+                        src={alpacaDrawing.accessories}
+                        alt="accessories"
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  )}
+
+                  {/*Ears  */}
+                  <div className="absolute inset-0">
                     <img
-                      src={alpacaDrawing.accessories}
-                      alt="accessories"
-                      className="w-full h-full object-cover"
+                      src={alpacaDrawing.ears}
+                      alt="ears"
+                      className="w-full h-full object-contain"
                     />
                   </div>
-                )}
-
-                {/*Ears  */}
-                <div className="absolute left-30 size-60 ">
-                  <img
-                    src={alpacaDrawing.ears}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Hair */}
-                <div className="size-60 absolute z-50 left-25 top-2">
-                  <img
-                    src={alpacaDrawing.hair}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Eyes */}
-                <div className="size-60 z-50 absolute top-0 left-30">
-                  <img
-                    src={alpacaDrawing.eyes}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Mouth and Nose*/}
-                <div className="absolute left-30 -top-2 z-50 size-60">
-                  <img src={alpacaDrawing.mouth} alt="" className="" />
-                </div>
-                <div className="absolute top-0 left-32 z-40 size-60">
-                  <img src={alpacaDrawing.nose} alt="nose" className="" />
-                </div>
-                {/* Neck */}
-                <div className="size-60 absolute z-0 top-2 left-32">
-                  <img src={alpacaDrawing.neck} alt="" className="neck" />
+                  {/* Hair */}
+                  <div className="absolute inset-0 z-50">
+                    <img
+                      src={alpacaDrawing.hair}
+                      alt="hair"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Eyes */}
+                  <div className="absolute inset-0 z-50">
+                    <img
+                      src={alpacaDrawing.eyes}
+                      alt="eyes"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Mouth */}
+                  <div className="absolute inset-0 z-50">
+                    <img
+                      src={alpacaDrawing.mouth}
+                      alt="mouth"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Nose */}
+                  <div className="absolute inset-0 z-40">
+                    <img
+                      src={alpacaDrawing.nose}
+                      alt="nose"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Neck */}
+                  <div className="absolute inset-0 z-0">
+                    <img
+                      src={alpacaDrawing.neck}
+                      alt="neck"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  {/* Legs */}
+                  <div className="absolute left-10 bottom-0  z-0">
+                    <img
+                      src={alpacaDrawing.leg}
+                      alt="legs"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex items-center gap-6">
+            <div className="mt-5 flex items-center justify-center gap-6">
               <button
-                className="transition duration-150 rounded-2xl hover:shadow-2xl hover:scale-105 hover:bg-blue-950 hover:text-white px-4 py-3 border cursor-pointer border-blue-950 flex items-center gap-2"
+                className="transition duration-150 rounded-full hover:shadow-2xl hover:scale-105 hover:bg-blue-950 hover:text-white px-6 py-3 bg-white border cursor-pointer border-blue-950 flex items-center gap-2"
                 onClick={() => randomAlpaca()}
               >
                 <Heart className="w-6 h-6 text-gray-500 " />
                 Random
               </button>
-              {/* <button className="rounded-2xl px-4 py-3 border border-blue-950">
-            Download
-          </button> */}
             </div>
           </div>
           {/* Options Div */}

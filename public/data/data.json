@@ -58,11 +58,10 @@
   ],
   "leg": [
     { "name": "default", "path": "/alpaca/leg/default.png" },
-    { "name": "bubbletea", "path": "/alpaca/leg/bubbletea.png" },
+    { "name": "bubble-tea", "path": "/alpaca/leg/bubble-tea.png" },
     { "name": "cookie", "path": "/alpaca/leg/cookie.png" },
-    { "name": "gameconsole", "path": "/alpaca/leg/gameconsole.png" },
-    { "name": "icecream", "path": "/alpaca/leg/icecream.png" },
-    { "name": "pizza", "path": "/alpaca/leg/pizza.png" }
+    { "name": "tiltforward", "path": "/alpaca/leg/tilt-forward.png" },
+    { "name": "tiltbackward", "path": "/alpaca/leg/tilt-backward.png" }
   ],
   "mouth": [
     { "name": "default", "path": "/alpaca/mouth/default.png" },
