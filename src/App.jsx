@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import html2canvas from "html2canvas";
 import { Heart } from "lucide-react";
 function App() {
   const [alpaca, setAlpaca] = useState();
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [chosenCategory, setChosenCategory] = useState("hair");
+  const alpacaRef = useRef(null); // Reference to just the alpaca image area
   const [alpacaDrawing, setAlpacaDrawing] = useState({
     hair: "/alpaca/hair/default.png",
     ears: "/alpaca/ears/default.png",
@@ -61,6 +63,26 @@ function App() {
     });
   };
   // console.log(alpaca, categories);
+  const handleDownload = async () => {
+    if (!alpacaRef.current) return;
+
+    try {
+      const canvas = await html2canvas(alpacaRef.current, {
+        backgroundColor: null, // Makes background transparent if needed
+        scale: 2, // Higher quality image (2x resolution)
+        useCORS: true, // Allows cross-origin images to be loaded
+      });
+
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = "my_alpaca.png";
+      link.click();
+    } catch (error) {
+      console.error("Error downloading image:", error);
+    }
+  };
+
   return (
     <>
       <div className="p-4 w-screen bg-gray-200 h-screen">
@@ -69,8 +91,9 @@ function App() {
         </h1>
         <div className="lg:grid lg:grid-cols-2 lg:gap-10 lg:max-w-[1000px] mx-auto bg-white py-20 px-10 rounded-2xl">
           <div>
-            {/* Alpaca Image Div */}
+            {/* Alpaca Image Div - THIS is what gets downloaded */}
             <div
+              ref={alpacaRef} // Move ref here to only capture the alpaca
               className="h-60 sm:h-96 w-full max-w-md mx-auto rounded-xl relative overflow-hidden"
               style={{ backgroundImage: `url('${alpacaDrawing.background}')` }}
             >
@@ -147,6 +170,8 @@ function App() {
                 </div>
               </div>
             </div>
+
+            {/* Buttons stay outside the download area */}
             <div className="mt-5 flex items-center justify-center gap-6">
               <button
                 className="transition duration-150 rounded-full hover:shadow-2xl hover:scale-105 hover:bg-blue-950 hover:text-white px-6 py-3 bg-white border cursor-pointer border-blue-950 flex items-center gap-2"
@@ -154,6 +179,13 @@ function App() {
               >
                 <Heart className="w-6 h-6 text-gray-500 " />
                 Random
+              </button>
+              <button
+                className="transition duration-150 rounded-full hover:shadow-2xl hover:scale-105 hover:bg-blue-950 hover:text-white px-6 py-3 bg-white border cursor-pointer border-blue-950 flex items-center gap-2"
+                onClick={handleDownload}
+              >
+                <Heart className="w-6 h-6 text-gray-500 " />
+                Download
               </button>
             </div>
           </div>

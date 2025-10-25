@@ -38,7 +38,13 @@
     { "name": "green70", "path": "/alpaca/backgrounds/green70.png" },
     { "name": "grey40", "path": "/alpaca/backgrounds/grey40.png" },
     { "name": "grey70", "path": "/alpaca/backgrounds/grey70.png" },
-    { "name": "grey80", "path": "/alpaca/backgrounds/grey80.png" }
+    { "name": "grey80", "path": "/alpaca/backgrounds/grey80.png" },
+    { "name": "red50", "path": "/alpaca/backgrounds/red50.png" },
+    { "name": "red60", "path": "/alpaca/backgrounds/red60.png" },
+    { "name": "red70", "path": "/alpaca/backgrounds/red70.png" },
+    { "name": "yellow50", "path": "/alpaca/backgrounds/yellow50.png" },
+    { "name": "yellow60", "path": "/alpaca/backgrounds/yellow60.png" },
+    { "name": "yellow70", "path": "/alpaca/backgrounds/yellow70.png" }
   ],
   "ears": [
     { "name": "default", "path": "/alpaca/ears/default.png" },
