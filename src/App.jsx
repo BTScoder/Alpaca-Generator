@@ -20,8 +20,9 @@ function App() {
   });
 
   const changeAlpacaPart = (part, item) => {
-    setAlpacaDrawing((prev) => ({ ...prev, [part]: item.path }));
-    console.log(part, item.path, alpacaDrawing);
+    // If the category is "backgrounds", update "background" in state
+    const statePart = part === "backgrounds" ? "background" : part;
+    setAlpacaDrawing((prev) => ({ ...prev, [statePart]: item.path }));
   };
   useEffect(() => {
     fetch("data/data.json")

@@ -12,27 +12,15 @@
     { "name": "earings", "path": "/alpaca/accessories/earings.png" },
     { "name": "flower", "path": "/alpaca/accessories/flower.png" },
     { "name": "glasses", "path": "/alpaca/accessories/glasses.png" },
-    {
-      "name": "headphone",
-      "path": "/alpaca/accessories/headphone.png"
-    }
+    { "name": "headphone", "path": "/alpaca/accessories/headphone.png" }
   ],
   "backgrounds": [
     { "name": "blue50", "path": "/alpaca/backgrounds/blue50.png" },
     { "name": "blue60", "path": "/alpaca/backgrounds/blue60.png" },
     { "name": "blue70", "path": "/alpaca/backgrounds/blue70.png" },
-    {
-      "name": "darkblue30",
-      "path": "/alpaca/backgrounds/darkblue30.png"
-    },
-    {
-      "name": "darkblue50",
-      "path": "/alpaca/backgrounds/darkblue50.png"
-    },
-    {
-      "name": "darkblue70",
-      "path": "/alpaca/backgrounds/darkblue70.png"
-    },
+    { "name": "darkblue30", "path": "/alpaca/backgrounds/darkblue30.png" },
+    { "name": "darkblue50", "path": "/alpaca/backgrounds/darkblue50.png" },
+    { "name": "darkblue70", "path": "/alpaca/backgrounds/darkblue70.png" },
     { "name": "green50", "path": "/alpaca/backgrounds/green50.png" },
     { "name": "green60", "path": "/alpaca/backgrounds/green60.png" },
     { "name": "green70", "path": "/alpaca/backgrounds/green70.png" },
@@ -48,10 +36,7 @@
   ],
   "ears": [
     { "name": "default", "path": "/alpaca/ears/default.png" },
-    {
-      "name": "tiltbackward",
-      "path": "/alpaca/ears/tilt-backward.png"
-    },
+    { "name": "tiltbackward", "path": "/alpaca/ears/tilt-backward.png" },
     { "name": "tiltforward", "path": "/alpaca/ears/tilt-forward.png" }
   ],
   "eyes": [
@@ -64,10 +49,11 @@
   ],
   "leg": [
     { "name": "default", "path": "/alpaca/leg/default.png" },
-    { "name": "bubble-tea", "path": "/alpaca/leg/bubble-tea.png" },
+    { "name": "bubbletea", "path": "/alpaca/leg/bubble-tea.png" },
     { "name": "cookie", "path": "/alpaca/leg/cookie.png" },
-    { "name": "tiltforward", "path": "/alpaca/leg/tilt-forward.png" },
-    { "name": "tiltbackward", "path": "/alpaca/leg/tilt-backward.png" }
+    { "name": "gameConsole", "path": "/alpaca/leg/game-console.png" },
+    { "name": "tiltbackward", "path": "/alpaca/leg/tilt-backward.png" },
+    { "name": "tiltforward", "path": "/alpaca/leg/tilt-forward.png" }
   ],
   "mouth": [
     { "name": "default", "path": "/alpaca/mouth/default.png" },
@@ -78,14 +64,8 @@
   ],
   "neck": [
     { "name": "default", "path": "/alpaca/neck/default.png" },
-    {
-      "name": "bendforward",
-      "path": "/alpaca/neck/bend-forward.png"
-    },
-    {
-      "name": "bendbackward",
-      "path": "/alpaca/neck/bend-backward.png"
-    },
+    { "name": "bendbackward", "path": "/alpaca/neck/bend-backward.png" },
+    { "name": "bendforward", "path": "/alpaca/neck/bend-forward.png" },
     { "name": "thick", "path": "/alpaca/neck/thick.png" }
   ]
 }
