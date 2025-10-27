@@ -14,7 +14,7 @@
     { "name": "glasses", "path": "/alpaca/accessories/glasses.png" },
     { "name": "headphone", "path": "/alpaca/accessories/headphone.png" }
   ],
-  "backgrounds": [
+  "background": [
     { "name": "blue50", "path": "/alpaca/backgrounds/blue50.png" },
     { "name": "blue60", "path": "/alpaca/backgrounds/blue60.png" },
     { "name": "blue70", "path": "/alpaca/backgrounds/blue70.png" },
